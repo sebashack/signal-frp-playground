@@ -1,10 +1,10 @@
 module Mouse (displayText, mousePosDisplay) where
 
-import Prelude
+import Prelude (Unit, bind, pure, show, (<>)) 
 import Control.Monad.Eff (Eff)
 import DOM (DOM)
-import Signal
-import Signal.DOM 
+import Signal (Signal, (~>))
+import Signal.DOM (mousePos)
 
 foreign import displayText :: forall eff. String
                                        -> Eff (dom :: DOM | eff) Unit
@@ -16,3 +16,4 @@ mousePosDisplay = do
   pure (sig ~> toStr)
   where
     toStr { x, y } = "( " <> (show x) <> " " <> (show y) <> " )" 
+

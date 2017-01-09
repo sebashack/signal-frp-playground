@@ -10,7 +10,8 @@
     "purescript-prelude": "^2.1.0",
     "purescript-console": "^2.0.0",
     "purescript-signal": "^8.0.0",
-    "purescript-dom": "^3.0.0"
+    "purescript-dom": "^3.0.0",
+    "purescript-strings": "^2.1.0"
   },
   "devDependencies": {
     "purescript-psci-support": "^2.0.0"

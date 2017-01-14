@@ -1,3 +1,4 @@
+
 module Merge (button2, link, displayBoxValue) where
 
 import Prelude (Unit)
@@ -13,7 +14,7 @@ foreign import signalLink :: forall eff c.
                              (c -> Signal c)
                           -> Eff (dom :: DOM | eff) (Signal String)
 
-foreign import displayBoxValue :: forall eff. 
+foreign import displayBoxValue :: forall eff.
                                   String
                                -> Eff (dom :: DOM | eff) Unit
 
@@ -22,5 +23,3 @@ button2 = signalButton2 constant
 
 link :: forall eff. Eff (dom :: DOM | eff) (Signal String)
 link = signalLink constant
-
-

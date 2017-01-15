@@ -22,7 +22,7 @@ exports.signalClick = function(constant) {
 
 exports.displayInput = function(str) {
   return function() {
-    var text = document.getElementById('myLabel');
-    text.textContent = str;
+    var label = document.getElementById('myLabel');
+    label.textContent = str;
   };
 };

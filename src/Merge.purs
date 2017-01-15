@@ -1,4 +1,3 @@
-
 module Merge (button2, link, displayBoxValue) where
 
 import Prelude (Unit)

@@ -1,6 +1,7 @@
 module Main where
 
 import Prelude
+import Accumulator (addButton, displayAccumValue, subtractButton)
 import Control.Monad.Eff (Eff)
 import Control.Monad.Eff.Console (CONSOLE)
 import DOM (DOM)
@@ -31,4 +32,9 @@ main = do
   sig5 <- boxInput
   sig6 <- click
   runSignal $ (sig6 `sampleOn` sig5) ~> toUpper ~> displayInput
+  -- <---------------------------------
+  -- Example: A simple Accumulator
+  sig7 <- addButton
+  sig8 <- subtractButton
+  runSignal $ (sig7 `merge` sig8) ~> displayAccumValue
   -- <---------------------------------

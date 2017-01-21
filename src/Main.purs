@@ -8,9 +8,10 @@ import DOM (DOM)
 import Data.String (length, toUpper)
 import Merge (button2, link, displayBoxValue)
 import Mouse (displayText, mousePosDisplay)
-import Signal (runSignal, merge, sampleOn, (~>))
+import Signal (Signal, runSignal, merge, sampleOn, filter, (~>))
 import SnapShot (click, displayInput, boxInput)
 import TextCount (boxText, displayButtonText)
+import Validation (formInput, enableButton)
 
 main :: forall e. Eff (console :: CONSOLE, dom :: DOM | e) Unit
 main = do
@@ -38,3 +39,6 @@ main = do
   sig8 <- subtractButton
   runSignal $ (sig7 `merge` sig8) ~> displayAccumValue
   -- <---------------------------------
+  -- A minimalistic input Validation
+  sig9 <- formInput
+  runSignal $ sig9 ~> (\str -> length str < 10) ~> enableButton
